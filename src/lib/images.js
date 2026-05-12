@@ -22,8 +22,6 @@ const PHOTOS = {
   pigmentation: 'photo-1598440947619-2c35fc9aa908',
   barrier: 'photo-1556228720-195a672e8a03',
   microneedling: 'photo-1620916566398-39f1143ab7be',
-  // Studio interior
-  studio: 'photo-1560066984-138dadb4c035',
 }
 
 const BASE = 'https://images.unsplash.com'
@@ -45,6 +43,4 @@ export const sizes = {
   founder: '(min-width: 1024px) 40vw, 100vw',
   // Treatment grid: 3 cols desktop, 2 cols tablet, 1 col mobile
   treatment: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw',
-  // Studio photo in VisitUs — half on desktop
-  studio: '(min-width: 1024px) 50vw, 100vw',
 }

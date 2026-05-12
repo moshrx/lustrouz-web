@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { src, srcSet, sizes } from '../lib/images'
+import studio800 from '../assets/studio-800.jpg'
+import studio1200 from '../assets/studio-1200.jpg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -74,18 +75,18 @@ export default function VisitUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           {/* Left: Info */}
           <div ref={leftRef}>
-            {/* Studio photo */}
+            {/* Studio photo — the real Lustrouz Aesthetics studio */}
             <div
               className="rounded-2xl overflow-hidden mb-8 sm:mb-10"
-              style={{ aspectRatio: '16/10', background: '#EFE7DE' }}
+              style={{ aspectRatio: '3/4', background: '#EFE7DE' }}
             >
               <img
-                src={src('studio', 1200)}
-                srcSet={srcSet('studio', [600, 1000, 1400])}
-                sizes={sizes.studio}
-                alt="Lustrouz Aesthetics studio interior"
+                src={studio1200}
+                srcSet={`${studio800} 800w, ${studio1200} 1200w`}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                alt="The Lustrouz Aesthetics treatment room — warm lighting, marble floor, professional aesthetic equipment, and curated skincare shelf"
                 width="1200"
-                height="750"
+                height="1600"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover"

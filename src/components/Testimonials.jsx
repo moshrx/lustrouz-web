@@ -4,26 +4,31 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Real reviews from Google. Lightly trimmed for length; nothing rephrased.
 const reviews = [
   {
-    quote: "Shahama took the time to actually understand my skin before recommending anything. Six weeks in, my acne has calmed completely and my barrier finally feels healthy. The consultation alone is worth it.",
-    name: 'Amara K.',
-    detail: 'Acne Treatment Plan',
+    quote:
+      "I had an amazing experience at Lustrouz Aesthetics with Shahama! She helped me get rid of my skin tags — the whole procedure was totally painless and done with great care. She clearly explained everything before starting and gave detailed aftercare instructions. What impressed me the most is that Shahama even followed up a few days later to make sure everything was healing well — that really shows how much she cares about her clients.",
+    name: 'Jifin Ahmed',
+    detail: 'Google Review · Skin Tag Removal',
   },
   {
-    quote: "I've struggled with melasma for years and tried everything. The customized peel and aftercare protocol actually moved the needle — and Shahama never once oversold or pushed something I didn't need.",
-    name: 'Priya S.',
-    detail: 'Pigmentation Care',
+    quote:
+      "I had such a wonderful experience at Lustrouz Aesthetics! The clinic has such a calm, luxurious vibe, and everything feels so clean and professional. Shahama is absolutely amazing — she explained every step of my treatment and made me feel so comfortable throughout. My skin felt hydrated, fresh, and glowing right after. Definitely my go-to place from now on!",
+    name: 'Hiba Rinsha',
+    detail: 'Google Review',
   },
   {
-    quote: "The studio is so peaceful and intentional. Every step is explained, every product is purposeful. It feels like medical care and luxury skincare merged into one — exactly what I was looking for.",
-    name: 'Danielle M.',
-    detail: 'Signature Facial',
+    quote:
+      "From the moment I walked in, she made me feel comfortable and well cared for. She took the time to explain each step of the treatment and customized everything to my skin's needs. The results were incredible — my skin feels so refreshed and glowing! You can tell she's passionate about helping her clients look and feel their best. Highly recommend her to anyone looking for professional, personalized aesthetic care.",
+    name: 'Dilsana',
+    detail: 'Google Review',
   },
   {
-    quote: "After over-exfoliating for months my skin was reactive to everything. Shahama's barrier-repair plan brought my skin back to a place I didn't think was possible. Forever client.",
-    name: 'Fatima R.',
-    detail: 'Barrier Repair',
+    quote:
+      "The process was smooth and painless. Initially, I was afraid to undergo the procedure of skin tag removal; however, Shahama informed me about what to expect. Afterwards, I felt reassured about going through with the procedure. Overall, I had a positive experience at Lustrouz Aesthetics. I recommend it to others.",
+    name: 'Nicole Writer',
+    detail: 'Google Review · Skin Tag Removal',
   },
 ]
 
@@ -89,16 +94,21 @@ export default function Testimonials() {
 
       <div className="relative max-w-4xl mx-auto text-center">
         {/* Eyebrow */}
-        <p className="text-xs tracking-widest uppercase mb-10 sm:mb-14 font-medium" style={{ color: '#C4A882', letterSpacing: '0.24em' }}>
+        <p className="text-xs tracking-widest uppercase mb-8 sm:mb-10 font-medium" style={{ color: '#C4A882', letterSpacing: '0.24em' }}>
           <span className="inline-block w-8 h-px align-middle mr-3" style={{ background: '#C4A882' }} />
           Client Stories
         </p>
 
-        {/* Stars */}
-        <div className="flex justify-center gap-1 mb-8 sm:mb-10">
-          {[...Array(5)].map((_, i) => (
-            <span key={i} style={{ color: '#C4A882', fontSize: '1.05rem' }} aria-hidden="true">★</span>
-          ))}
+        {/* Stars + verified badge */}
+        <div className="flex flex-col items-center gap-3 mb-8 sm:mb-10">
+          <div className="flex justify-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <span key={i} style={{ color: '#C4A882', fontSize: '1.15rem' }} aria-hidden="true">★</span>
+            ))}
+          </div>
+          <p className="text-[10px] tracking-widest uppercase" style={{ color: 'rgba(250,247,243,0.45)', letterSpacing: '0.2em' }}>
+            Verified · Google Reviews
+          </p>
         </div>
 
         {/* Quote */}
@@ -144,6 +154,20 @@ export default function Testimonials() {
             />
           ))}
         </div>
+
+        {/* Link to Google reviews */}
+        <a
+          href="https://www.google.com/maps/place/lustrouz+Aesthetics/@43.7637016,-79.4876457,17z/data=!4m8!3m7!1s0x882b35afeffabbe9:0x839c95d12e168c42!9m1!1b1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 mt-8 sm:mt-10 text-xs tracking-widest uppercase font-medium transition-colors duration-200"
+          style={{ color: 'rgba(250,247,243,0.55)', letterSpacing: '0.18em' }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#C4A882')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(250,247,243,0.55)')}
+        >
+          Read all reviews on Google
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   )

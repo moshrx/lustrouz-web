@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F5F0EB" />
+
+    <title>Lustrouz Aesthetics — Medical Skincare Clinic · Toronto</title>
+    <meta name="description" content="Lustrouz Aesthetics — a refined medical skincare clinic led by Shahama Nellanchery, Certified Medical Aesthetician. Customized treatments for acne, pigmentation, sensitivity & barrier repair in North York, Toronto." />
+
+    <!-- Open Graph / social -->
+    <meta property="og:title" content="Lustrouz Aesthetics — Medical Skincare Clinic" />
+    <meta property="og:description" content="Science, skill, and subtle luxury. Customized medical aesthetic treatments by Shahama Nellanchery." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Favicon — inline SVG monogram (matches the brand mark, ~zero bytes) -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23F5F0EB'/><text x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='500' text-anchor='middle' fill='%231A1614'>L</text><text x='42' y='44' font-family='Georgia,serif' font-size='34' font-weight='500' font-style='italic' text-anchor='middle' fill='%23C4A882'>z</text></svg>"
+    />
+
+    <!-- Preconnect to the image CDN so the LCP image fetch starts ASAP -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Preload the hero image (responsive — browser picks the right one).
+         imagesrcset/imagesizes ensures we don't preload a wrong size. -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200"
+      imagesrcset="
+        https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800 800w,
+        https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200 1200w,
+        https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1600 1600w,
+        https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=2000 2000w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <!-- Fonts — preconnect first, then a single combined request -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

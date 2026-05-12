@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Lustrouz Aesthetics</title>
+  <rect width="64" height="64" rx="14" fill="#F5F0EB"/>
+  <text x="22" y="42" fill="#1A1614" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="500">L</text>
+  <text x="34" y="42" fill="#C4A882" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-style="italic" font-weight="500">Z</text>
+  <path d="M16 49h32" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+</svg>

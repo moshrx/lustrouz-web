@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import studio800 from '../assets/optimized/studio-reception-800.jpeg'
 import studio1200 from '../assets/optimized/studio-reception-1400.jpeg'
 import studioTreatmentDay from '../assets/optimized/studio-treatment-day.jpeg'
-import studioRoomsSplit from '../assets/optimized/studio-rooms-split.jpeg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -96,35 +95,19 @@ export default function VisitUs() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ aspectRatio: '3/4', background: 'var(--color-surface-2)' }}
-              >
-                <img
-                  src={studioTreatmentDay}
-                  alt="Bright treatment room with linen-dressed bed, LED therapy lamp, and a soft daylight palette"
-                  width="1100"
-                  height="1467"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ aspectRatio: '3/4', background: 'var(--color-surface-2)' }}
-              >
-                <img
-                  src={studioRoomsSplit}
-                  alt="A second view of the Lustrouz Aesthetics treatment suite, including a private skyline-view treatment room at dusk"
-                  width="1400"
-                  height="700"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div
+              className="rounded-2xl overflow-hidden mb-8 sm:mb-10"
+              style={{ aspectRatio: '4/3', background: 'var(--color-surface-2)' }}
+            >
+              <img
+                src={studioTreatmentDay}
+                alt="Bright treatment room with linen-dressed bed, LED therapy lamp, and a soft daylight palette"
+                width="1100"
+                height="825"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Contact details */}

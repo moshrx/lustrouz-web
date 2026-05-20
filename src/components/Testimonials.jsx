@@ -177,7 +177,7 @@ export default function Testimonials() {
 
         <div className="text-center">
           <a
-            href="https://www.google.com/maps/place/lustrouz+Aesthetics/@43.7637016,-79.4876457,17z/data=!4m8!3m7!1s0x882b35afeffabbe9:0x839c95d12e168c42!9m1!1b1"
+            href="https://www.google.com/maps/place/lustrouz+Aesthetics/@43.7637016,-79.4902206,17z/data=!3m1!4b1!4m6!3m5!1s0x882b35afeffabbe9:0x839c95d12e168c42!8m2!3d43.7637016!4d-79.4876457!16s%2Fg%2F11w4vpnbqf?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-6 sm:mt-8 text-xs tracking-widest uppercase font-medium transition-colors duration-200"

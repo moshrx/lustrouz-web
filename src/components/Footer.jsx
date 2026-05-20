@@ -3,11 +3,11 @@ import logoImg from '../assets/optimized/logo.png'
 import { BOOKING_URL, INSTAGRAM, SHOP_URL } from '../lib/constants'
 
 const navLinks = [
-  { label: 'Home', to: '/', anchor: '#home' },
-  { label: 'Treatments', to: '/treatments' },
-  { label: 'Shop Our Products', to: SHOP_URL, external: true },
+  { label: 'Explore Treatments', to: '/treatments' },
+  { label: 'Target Concerns', to: '/', anchor: '#concerns' },
+  { label: 'Shop', to: SHOP_URL, external: true },
+  { label: 'Plan Your Visit', to: '/', anchor: '#visit' },
   { label: 'About', to: '/', anchor: '#about' },
-  { label: 'Visit', to: '/', anchor: '#visit' },
 ]
 
 export default function Footer() {

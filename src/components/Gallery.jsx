@@ -1,22 +1,24 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import pic1 from '../assets/pics/IMG_8341.JPG.jpeg'
 import pic2 from '../assets/pics/IMG_8346.JPG.jpeg'
 import pic3 from '../assets/pics/IMG_8347.JPG.jpeg'
-import pic4 from '../assets/pics/IMG_8348.JPG.jpeg'
 import pic5 from '../assets/pics/IMG_8349.JPG.jpeg'
 import pic6 from '../assets/pics/IMG_8353.JPG.jpeg'
+import pic7 from '../assets/pics/IMG_8460.jpeg'
+import pic8 from '../assets/pics/IMG_8518.jpeg'
+import pic9 from '../assets/pics/IMG_8521.jpeg'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const photos = [
-  { src: pic1, alt: 'Inside the studio' },
   { src: pic2, alt: 'Custom treatment in progress' },
   { src: pic3, alt: 'Skincare ritual' },
-  { src: pic4, alt: 'Curated product shelf' },
+  { src: pic7, alt: 'Steam-and-cold treatment under the LED arc light' },
   { src: pic5, alt: 'Treatment finishing touches' },
+  { src: pic8, alt: 'LED red-light therapy session in progress' },
   { src: pic6, alt: 'Glow after treatment' },
+  { src: pic9, alt: 'Oxygen-infusion facial with protective eyewear' },
 ]
 
 export default function Gallery() {

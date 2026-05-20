@@ -12,9 +12,14 @@ const concerns = [
     icon: '✦',
   },
   {
-    title: 'Pigmentation',
+    title: 'Hyperpigmentation & Uneven Skin',
     desc: 'Melasma, sun damage, and uneven tone, softened progressively with brightening protocols and barrier care.',
     icon: '◈',
+  },
+  {
+    title: 'Fine Lines & Wrinkles',
+    desc: 'Early signs of aging around the eyes, mouth, and forehead. Collagen-stimulating protocols that smooth and firm.',
+    icon: '✧',
   },
   {
     title: 'Sensitive Skin',
@@ -25,6 +30,11 @@ const concerns = [
     title: 'Compromised Barrier',
     desc: 'Over-exfoliated or weakened skin barriers. Restorative protocols that rebuild resilience and hydration.',
     icon: '◆',
+  },
+  {
+    title: 'Hair Loss & Thinning',
+    desc: 'Thinning, shedding, and post-partum hair loss. PRP and scalp restoration therapies that reactivate growth.',
+    icon: '❋',
   },
 ]
 
@@ -52,6 +62,7 @@ export default function BeautyConcerns() {
 
   return (
     <section
+      id="concerns"
       ref={sectionRef}
       className="py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12"
       style={{ background: 'var(--color-bg)' }}
@@ -81,7 +92,7 @@ export default function BeautyConcerns() {
         </div>
 
         {/* Cards grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {concerns.map((c) => (
             <div
               key={c.title}

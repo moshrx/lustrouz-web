@@ -1,18 +1,18 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import img1 from '../assets/optimized/before-after-29A.jpeg'
 import img2 from '../assets/optimized/before-after-IMG_2694.jpeg'
 import img3 from '../assets/optimized/before-after-IMG_8343.jpeg'
 import img4 from '../assets/optimized/before-after-IMG_8352.jpeg'
+import img5 from '../assets/optimized/before-after-acne-clearing-2.jpeg'
 import { BOOKING_URL } from '../lib/constants'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const results = [
-  { src: img1, label: 'Skin Tag Removal', detail: 'Precision, painless treatment' },
   { src: img2, label: 'Acne Clearing', detail: 'Multi-step custom protocol' },
-  { src: img3, label: 'Glow Restoration', detail: 'Brightening + barrier care' },
+  { src: img5, label: 'Hyperpigmentation', detail: 'Targeted light therapy' },
+  { src: img3, label: 'Skin Tag Removal', detail: 'Precision, painless treatment' },
   { src: img4, label: 'Texture Refinement', detail: 'Smoother, healthier skin' },
 ]
 

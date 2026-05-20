@@ -7,8 +7,8 @@
 
 @layer base {
   :root {
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Bodoni Moda', Georgia, serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --color-bg: hsl(36 71.43% 98.63%);
     --color-surface: hsl(36 71.43% 98.63%);
     --color-surface-2: hsl(27.27 20.75% 89.61%);
@@ -54,11 +54,6 @@
     font-weight: 400;
     letter-spacing: -0.005em;
     font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 50, "WONK" 0;
-  }
-
-  em, .font-serif em, [style*="italic"] {
-    font-variation-settings: "SOFT" 60, "WONK" 1;
   }
 
   img {

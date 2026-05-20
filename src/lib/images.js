@@ -11,9 +11,9 @@
  */
 
 const PHOTOS = {
-  // Hero — quiet, editorial close-up of skin / treatment
+  // Hero: quiet, editorial close-up of skin / treatment
   hero: 'photo-1570172619644-dfd03ed5d881',
-  // Founder portrait — calm female aesthetician portrait
+  // Founder portrait: calm female aesthetician portrait
   founder: 'photo-1581091226825-a6a2a5aee158',
   // Treatments
   signatureFacial: 'photo-1570172619644-dfd03ed5d881',

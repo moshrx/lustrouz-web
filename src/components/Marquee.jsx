@@ -15,8 +15,8 @@ function Group({ items }) {
           <span
             className="font-serif italic px-7 sm:px-10"
             style={{
-              color: i % 2 ? 'rgba(250,247,243,0.85)' : '#C4A882',
-              fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',
+              color: 'var(--color-text)',
+              fontSize: 'clamp(1.2rem, 2.6vw, 1.9rem)',
               fontWeight: 300,
               letterSpacing: '0.01em',
             }}
@@ -24,8 +24,8 @@ function Group({ items }) {
             {item}
           </span>
           <span
-            className="w-1.5 h-1.5 rounded-full shrink-0"
-            style={{ background: 'rgba(196,168,130,0.6)' }}
+            className="w-1 h-1 rounded-full shrink-0"
+            style={{ background: 'hsl(0 0.97% 20.2% / 0.5)' }}
             aria-hidden="true"
           />
         </div>
@@ -39,15 +39,13 @@ export default function Marquee() {
     <section
       className="overflow-hidden"
       style={{
-        background: '#1A1614',
-        borderTop: '1px solid rgba(196,168,130,0.15)',
-        borderBottom: '1px solid rgba(196,168,130,0.15)',
+        background: 'var(--color-bg)',
+        borderTop: '1px solid hsl(0 0.97% 20.2% / 0.12)',
+        borderBottom: '1px solid hsl(0 0.97% 20.2% / 0.12)',
       }}
       aria-hidden="true"
     >
       <div className="marquee-track flex whitespace-nowrap py-5 sm:py-6 will-change-transform">
-        {/* Two identical groups → the track is exactly 2× the content,
-            so translateX(-50%) creates a perfect, seamless loop. */}
         <Group items={items} />
         <Group items={items} />
       </div>

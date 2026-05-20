@@ -1,6 +1,6 @@
 # Lustrouz Aesthetics
 
-Marketing site for **Lustrouz Aesthetics** — a medical skincare clinic in North York, Toronto, led by Shahama Nellanchery, Certified Medical Aesthetician.
+Marketing site for **Lustrouz Aesthetics**, a medical skincare clinic in North York, Toronto, led by Shahama Nellanchery, Certified Medical Aesthetician.
 
 Built with Vite + React 19 and Tailwind v4. Editorial design, mobile-first, optimized for LCP.
 
@@ -67,11 +67,11 @@ import { src, srcSet, sizes } from './lib/images'
 />
 ```
 
-To change a photo, edit the ID in `PHOTOS` — every component that uses it updates automatically.
+To change a photo, edit the ID in `PHOTOS`. Every component that uses it updates automatically.
 
 ### `src/components/Logo.jsx`
 
-Pure typographic SVG/HTML — no raster, no network, `currentColor`-driven so it adopts whatever parent color is in scope. Three sizes: `full`, `compact`, `mark`.
+Pure typographic SVG/HTML with no raster and no network. `currentColor`-driven so it adopts whatever parent color is in scope. Three sizes: `full`, `compact`, `mark`.
 
 ## Design system
 
@@ -91,13 +91,13 @@ Typography: Cormorant Garamond (serif headings, italic accents) + Inter (UI / bo
 
 ## Performance
 
-- **LCP hero** preloaded in `index.html` via `<link rel="preload" as="image" imagesrcset=...>` — fetch starts before JS parses.
+- **LCP hero** preloaded in `index.html` via `<link rel="preload" as="image" imagesrcset=...>` so the fetch starts before JS parses.
 - `<link rel="preconnect">` for `images.unsplash.com` and `fonts.gstatic.com`.
 - Every `<img>` ships with explicit `width` / `height` (no CLS), `loading="lazy"` (except hero), `decoding="async"`, and a `srcSet` matching its real slot.
 - Unsplash URLs use `auto=format` so modern browsers receive AVIF/WebP automatically.
 - Fonts use `display=swap` to keep text rendering uninterrupted.
 - Animations honor `prefers-reduced-motion` (defined in `index.css`).
-- Logo is pure SVG/HTML — zero bytes over the wire after gzip.
+- Logo is pure SVG/HTML, zero bytes over the wire after gzip.
 
 Current production sizes (gzip):
 
@@ -135,4 +135,4 @@ No environment variables, no server runtime required.
 
 ## License
 
-Proprietary — © Lustrouz Aesthetics. All rights reserved.
+Proprietary. © Lustrouz Aesthetics. All rights reserved.

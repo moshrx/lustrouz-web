@@ -4,9 +4,9 @@
  * Sharp at every size, ~zero bytes, instant render.
  *
  * Variants:
- *   "full"    — Monogram + LUSTROUZ + AESTHETICS  (header/footer)
- *   "compact" — Monogram + LUSTROUZ               (tight mobile navbar)
- *   "mark"    — Monogram only                     (favicons, small badges)
+ *   "full"    : Monogram + LUSTROUZ + AESTHETICS  (header/footer)
+ *   "compact" : Monogram + LUSTROUZ               (tight mobile navbar)
+ *   "mark"    : Monogram only                     (favicons, small badges)
  */
 export default function Logo({ variant = 'full', size = 44, color = 'currentColor' }) {
   const monogramSize = size
@@ -19,7 +19,7 @@ export default function Logo({ variant = 'full', size = 44, color = 'currentColo
       style={{ color }}
       aria-label="Lustrouz Aesthetics"
     >
-      {/* Monogram — pure typographic LZ ligature */}
+      {/* Monogram: pure typographic LZ ligature */}
       <span
         className="font-serif relative"
         style={{

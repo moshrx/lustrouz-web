@@ -1,23 +1,38 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import Philosophy from './components/Philosophy'
-import Treatments from './components/Treatments'
-import Testimonials from './components/Testimonials'
 import BeautyConcerns from './components/BeautyConcerns'
+import BeforeAfter from './components/BeforeAfter'
+import Gallery from './components/Gallery'
+import Testimonials from './components/Testimonials'
 import VisitUs from './components/VisitUs'
 import Footer from './components/Footer'
 
 export default function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const target = location.state?.scrollTo
+    if (!target) return
+    requestAnimationFrame(() => {
+      document.querySelector(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+    window.history.replaceState({}, '')
+  }, [location.state])
+
   return (
-    <div style={{ minHeight: '100vh', background: '#F5F0EB' }}>
+    <div className="site-shell">
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <Marquee />
         <Philosophy />
-        <Treatments />
         <BeautyConcerns />
+        <BeforeAfter />
+        <Gallery />
         <Testimonials />
         <VisitUs />
       </main>

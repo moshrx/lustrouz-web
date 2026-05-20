@@ -120,7 +120,7 @@ export default function Navbar() {
         </div>
 
         <a className="site-nav__cta btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-          Book Now
+          Book a Free Consultation
         </a>
 
         <button
@@ -163,7 +163,7 @@ export default function Navbar() {
             )
           )}
           <a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-            Book Now
+            Book a Free Consultation
           </a>
           <div className="mobile-menu__visit">
             <span>North York studio</span>

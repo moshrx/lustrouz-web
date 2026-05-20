@@ -7,8 +7,8 @@
 
 @layer base {
   :root {
-    --font-display: 'Instrument Serif', Georgia, serif;
-    --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Geist', ui-sans-serif, system-ui, sans-serif;
     --color-bg: hsl(36 71.43% 98.63%);
     --color-surface: hsl(36 71.43% 98.63%);
     --color-surface-2: hsl(27.27 20.75% 89.61%);
@@ -52,7 +52,13 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: 0;
+    letter-spacing: -0.005em;
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 50, "WONK" 0;
+  }
+
+  em, .font-serif em, [style*="italic"] {
+    font-variation-settings: "SOFT" 60, "WONK" 1;
   }
 
   img {

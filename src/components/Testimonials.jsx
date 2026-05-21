@@ -103,7 +103,7 @@ export default function Testimonials() {
             className="font-serif"
             style={{
               color: 'var(--color-text)',
-              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
+              fontSize: 'clamp(1.7rem, 3.6vw, 2.6rem)',
               lineHeight: 1.1,
               fontWeight: 400,
             }}

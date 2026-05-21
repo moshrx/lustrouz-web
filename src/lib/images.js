@@ -26,14 +26,14 @@ const PHOTOS = {
 
 const BASE = 'https://images.unsplash.com'
 
-export function src(name, width = 1200) {
-  const id = PHOTOS[name]
+export function src(nameOrId, width = 1200) {
+  const id = PHOTOS[nameOrId] || (nameOrId?.startsWith('photo-') ? nameOrId : null)
   if (!id) return ''
   return `${BASE}/${id}?auto=format&fit=crop&q=80&w=${width}`
 }
 
-export function srcSet(name, widths = [480, 800, 1200, 1800]) {
-  return widths.map((w) => `${src(name, w)} ${w}w`).join(', ')
+export function srcSet(nameOrId, widths = [480, 800, 1200, 1800]) {
+  return widths.map((w) => `${src(nameOrId, w)} ${w}w`).join(', ')
 }
 
 export const sizes = {

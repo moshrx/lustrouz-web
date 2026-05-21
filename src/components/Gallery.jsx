@@ -7,7 +7,6 @@ import pic5 from '../assets/pics/IMG_8349.JPG.jpeg'
 import pic6 from '../assets/pics/IMG_8353.JPG.jpeg'
 import pic7 from '../assets/pics/IMG_8460.jpeg'
 import pic8 from '../assets/pics/IMG_8518.jpeg'
-import pic9 from '../assets/pics/IMG_8521.jpeg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,7 +17,6 @@ const photos = [
   { src: pic5, alt: 'Treatment finishing touches' },
   { src: pic8, alt: 'LED red-light therapy session in progress' },
   { src: pic6, alt: 'Glow after treatment' },
-  { src: pic9, alt: 'Oxygen-infusion facial with protective eyewear' },
 ]
 
 export default function Gallery() {
@@ -60,7 +58,7 @@ export default function Gallery() {
             className="font-serif mb-5"
             style={{
               color: 'var(--color-text)',
-              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
+              fontSize: 'clamp(1.7rem, 3.6vw, 2.6rem)',
               lineHeight: 1.1,
               fontWeight: 400,
             }}

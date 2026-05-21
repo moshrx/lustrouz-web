@@ -61,16 +61,22 @@ export default function VisitUs() {
             <span className="inline-block w-8 h-px align-middle ml-3" style={{ background: 'var(--color-accent)' }} />
           </p>
           <h2
-            className="font-serif"
+            className="font-serif mb-5"
             style={{
               color: 'var(--color-text)',
-              fontSize: 'clamp(2.1rem, 4.5vw, 3.2rem)',
+              fontSize: 'clamp(1.7rem, 3.6vw, 2.6rem)',
               lineHeight: 1.1,
               fontWeight: 400,
             }}
           >
-            Visit the <em style={{ color: 'var(--color-accent)', fontStyle: 'italic', fontWeight: 300 }}>studio.</em>
+            Visit our <em style={{ color: 'var(--color-accent)', fontStyle: 'italic', fontWeight: 300 }}>Lustrouz clinic.</em>
           </h2>
+          <p
+            className="font-sans font-light max-w-xl mx-auto"
+            style={{ color: 'var(--color-muted)', fontSize: '1rem', lineHeight: 1.85 }}
+          >
+            Our North York studio is a quiet, considered space designed for calm, focused skincare. Step in for a consultation, a treatment, or simply to talk through your goals, and we'll take it from there.
+          </p>
         </div>
 
         {/* Two-column layout */}

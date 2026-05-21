@@ -148,7 +148,7 @@ export default function Philosophy() {
               className="font-serif mb-7"
               style={{
                 color: 'var(--color-text)',
-                fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
+                fontSize: 'clamp(1.7rem, 3.6vw, 2.6rem)',
                 lineHeight: 1.08,
                 letterSpacing: '-0.01em',
               }}

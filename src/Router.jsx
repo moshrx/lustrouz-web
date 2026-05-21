@@ -1,8 +1,11 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import App from './App.jsx'
+import { treatmentCategories } from './lib/treatmentCategories.js'
 
-const TreatmentsPage = lazy(() => import('./pages/TreatmentsPage.jsx'))
+const CategoryPage = lazy(() => import('./pages/CategoryPage.jsx'))
+
+const fallback = <div className="site-shell" />
 
 export default function Router() {
   return (
@@ -11,9 +14,13 @@ export default function Router() {
         <Route path="/" element={<App />} />
         <Route
           path="/treatments"
+          element={<Navigate to={`/treatments/${treatmentCategories[0].slug}`} replace />}
+        />
+        <Route
+          path="/treatments/:slug"
           element={
-            <Suspense fallback={<div className="site-shell" />}>
-              <TreatmentsPage />
+            <Suspense fallback={fallback}>
+              <CategoryPage />
             </Suspense>
           }
         />

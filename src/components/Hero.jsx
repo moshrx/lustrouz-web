@@ -1,12 +1,15 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import heroImg from '../assets/home-header.JPG.jpeg'
 import { BOOKING_URL } from '../lib/constants'
+import { treatmentCategories } from '../lib/treatmentCategories'
 
 export default function Hero() {
   const contentRef = useRef(null)
   const statsRef = useRef(null)
+  const dropdownRef = useRef(null)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -24,6 +27,23 @@ export default function Hero() {
 
     return () => ctx.revert()
   }, [])
+
+  useEffect(() => {
+    if (!dropdownOpen) return
+
+    const onClick = (e) => {
+      if (!dropdownRef.current?.contains(e.target)) setDropdownOpen(false)
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setDropdownOpen(false)
+    }
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [dropdownOpen])
 
   return (
     <section id="home" className="hero">
@@ -51,11 +71,46 @@ export default function Hero() {
           </p>
           <div className="hero__actions">
             <a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-              Free Consultation
+              Book with us
             </a>
-            <Link className="btn btn-secondary" to="/treatments">
-              View Treatments
-            </Link>
+            <div ref={dropdownRef} className="hero__dropdown-wrap">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                aria-haspopup="menu"
+                aria-expanded={dropdownOpen}
+                onClick={() => setDropdownOpen((open) => !open)}
+              >
+                View Treatments
+                <span
+                  aria-hidden="true"
+                  style={{
+                    display: 'inline-block',
+                    marginLeft: '0.5rem',
+                    transition: 'transform 180ms ease',
+                    transform: dropdownOpen ? 'rotate(0)' : 'rotate(180deg)',
+                  }}
+                >
+                  ▴
+                </span>
+              </button>
+              <div
+                className={`hero__dropdown ${dropdownOpen ? 'is-open' : ''}`}
+                role="menu"
+                aria-hidden={!dropdownOpen}
+              >
+                {treatmentCategories.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to={`/treatments/${c.slug}`}
+                    role="menuitem"
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    {c.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

@@ -1,11 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logoImg from '../assets/optimized/logo.png'
+import logoImg from '../assets/optimized/logo-transparent.png'
 import { BOOKING_URL, SHOP_URL } from '../lib/constants'
+import { treatmentCategories } from '../lib/treatmentCategories'
 
 const links = [
-  { label: 'Explore Treatments', to: '/treatments' },
-  { label: 'Target Concerns', to: '/', anchor: '#concerns' },
+  {
+    label: 'Explore Treatments',
+    dropdown: treatmentCategories.map((c) => ({
+      label: c.title,
+      to: `/treatments/${c.slug}`,
+    })),
+  },
+  { label: 'Transformations', to: '/', anchor: '#results' },
   { label: 'Shop', to: SHOP_URL, external: true },
   { label: 'Plan Your Visit', to: '/', anchor: '#visit' },
   { label: 'About', to: '/', anchor: '#about' },
@@ -14,10 +21,30 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null)
   const location = useLocation()
   const navigate = useNavigate()
   const menuRef = useRef(null)
   const toggleRef = useRef(null)
+  const dropdownContainerRef = useRef(null)
+
+  useEffect(() => {
+    if (!openDropdown) return
+    const onDocClick = (e) => {
+      if (!dropdownContainerRef.current?.contains(e.target)) {
+        setOpenDropdown(null)
+      }
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpenDropdown(null)
+    }
+    document.addEventListener('mousedown', onDocClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDocClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [openDropdown])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -77,6 +104,7 @@ export default function Navbar() {
 
   const handleNav = (event, link) => {
     setMenuOpen(false)
+    setOpenDropdown(null)
     if (!link.anchor) return
     event.preventDefault()
 
@@ -102,21 +130,56 @@ export default function Navbar() {
           className="site-nav__brand"
           aria-label="Lustrouz Aesthetics home"
         >
-          <img src={logoImg} alt="Lustrouz Aesthetics" width="168" height="50" decoding="async" />
+          <img src={logoImg} alt="Lustrouz Aesthetics" width="235" height="201" decoding="async" />
         </Link>
 
-        <div className="site-nav__links">
-          {links.map((link) =>
-            link.external ? (
-              <a key={link.label} href={link.to} target="_blank" rel="noopener noreferrer">
-                {link.label}
-              </a>
-            ) : (
+        <div className="site-nav__links" ref={dropdownContainerRef}>
+          {links.map((link) => {
+            if (link.dropdown) {
+              const isOpen = openDropdown === link.label
+              return (
+                <div key={link.label} className="site-nav__dropdown-wrap">
+                  <button
+                    type="button"
+                    className="site-nav__dropdown-toggle"
+                    aria-haspopup="menu"
+                    aria-expanded={isOpen}
+                    onClick={() => setOpenDropdown(isOpen ? null : link.label)}
+                  >
+                    {link.label}
+                  </button>
+                  <div
+                    className={`site-nav__dropdown ${isOpen ? 'is-open' : ''}`}
+                    role="menu"
+                    aria-hidden={!isOpen}
+                  >
+                    {link.dropdown.map((sub) => (
+                      <Link
+                        key={sub.label}
+                        to={sub.to}
+                        role="menuitem"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )
+            }
+            if (link.external) {
+              return (
+                <a key={link.label} href={link.to} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              )
+            }
+            return (
               <Link key={link.label} to={link.to} onClick={(event) => handleNav(event, link)}>
                 {link.label}
               </Link>
             )
-          )}
+          })}
         </div>
 
         <a className="site-nav__cta btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
@@ -145,23 +208,43 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
       >
         <div className="mobile-menu__panel">
-          {links.map((link) =>
-            link.external ? (
-              <a
-                key={link.label}
-                href={link.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ) : (
+          {links.map((link) => {
+            if (link.dropdown) {
+              return (
+                <div key={link.label} className="mobile-menu__group">
+                  <span className="mobile-menu__group-title">{link.label}</span>
+                  {link.dropdown.map((sub) => (
+                    <Link
+                      key={sub.label}
+                      to={sub.to}
+                      onClick={() => setMenuOpen(false)}
+                      className="mobile-menu__sub"
+                    >
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              )
+            }
+            if (link.external) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
+            }
+            return (
               <Link key={link.label} to={link.to} onClick={(event) => handleNav(event, link)}>
                 {link.label}
               </Link>
             )
-          )}
+          })}
           <a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             Book a Free Consultation
           </a>

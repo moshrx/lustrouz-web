@@ -1,10 +1,10 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logoImg from '../assets/optimized/logo.png'
+import logoImg from '../assets/optimized/logo-transparent.png'
 import { BOOKING_URL, INSTAGRAM, SHOP_URL } from '../lib/constants'
 
 const navLinks = [
   { label: 'Explore Treatments', to: '/treatments' },
-  { label: 'Target Concerns', to: '/', anchor: '#concerns' },
+  { label: 'Transformations', to: '/', anchor: '#results' },
   { label: 'Shop', to: SHOP_URL, external: true },
   { label: 'Plan Your Visit', to: '/', anchor: '#visit' },
   { label: 'About', to: '/', anchor: '#about' },
@@ -26,20 +26,24 @@ export default function Footer() {
     }
   }
 
-  const footerLinkColor = 'hsl(36 71.43% 98.63% / 0.68)'
+  const footerLinkColor = 'var(--color-muted)'
 
   return (
-    <footer style={{ background: 'var(--color-deep-accent)', color: 'var(--color-bg)' }}>
+    <footer>
       <div
-        className="px-5 sm:px-8 lg:px-12 py-14 sm:py-16"
-        style={{ borderBlock: '1px solid hsl(36 71.43% 98.63% / 0.14)' }}
+        className="px-5 sm:px-8 lg:px-12 py-6 sm:py-7"
+        style={{
+          background: 'var(--color-deep-accent)',
+          color: 'var(--color-bg)',
+          borderBlock: '1px solid hsl(36 71.43% 98.63% / 0.14)',
+        }}
       >
         <div className="max-w-5xl mx-auto text-center">
-          <p className="text-xs tracking-widest uppercase mb-4 sm:mb-5" style={{ color: 'hsl(36 71.43% 98.63% / 0.78)', letterSpacing: '0.24em' }}>
+          <p className="text-xs tracking-widest uppercase mb-3" style={{ color: 'hsl(36 71.43% 98.63% / 0.78)', letterSpacing: '0.24em' }}>
             Begin Your Journey
           </p>
           <h3
-            className="font-serif mb-7 sm:mb-9 mx-auto"
+            className="font-serif mb-5 sm:mb-6 mx-auto"
             style={{
               color: 'var(--color-bg)',
               fontSize: 'clamp(1.7rem, 3.6vw, 2.6rem)',
@@ -64,30 +68,31 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-14 sm:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-start">
+      <div style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-6 sm:py-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
           <div className="md:col-span-5 flex flex-col items-start">
-            <Link to="/" className="mb-6 inline-flex" aria-label="Lustrouz Aesthetics Home">
+            <Link to="/" className="mb-4 inline-flex" aria-label="Lustrouz Aesthetics Home">
               <img
                 src={logoImg}
                 alt="Lustrouz Aesthetics"
-                width="180"
-                height="56"
+                width="235"
+                height="201"
                 loading="lazy"
                 decoding="async"
-                className="h-14 w-auto"
+                className="h-24 sm:h-28 w-auto"
               />
             </Link>
             <p
               className="font-sans font-light text-sm leading-relaxed max-w-sm"
-              style={{ color: 'hsl(36 71.43% 98.63% / 0.62)', lineHeight: 1.85 }}
+              style={{ color: 'var(--color-muted)', lineHeight: 1.85 }}
             >
-              A refined medical skincare clinic in North York, Toronto. Customized treatments led by Shahama Nellanchery, Certified Medical Aesthetician.
+              Advanced skincare tailored for acne, pigmentation, sensitivity, and skin barrier repair.
             </p>
           </div>
 
           <div className="md:col-span-3 flex flex-col gap-3.5">
-            <p className="text-xs tracking-widest uppercase font-medium mb-1" style={{ color: 'var(--color-bg)', letterSpacing: '0.2em' }}>Navigation</p>
+            <p className="text-xs tracking-widest uppercase font-medium mb-1" style={{ color: 'var(--color-text)', letterSpacing: '0.2em' }}>Navigation</p>
             {navLinks.map((l) => (
               l.external ? (
                 <a
@@ -97,7 +102,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="font-sans text-sm transition-colors duration-200"
                   style={{ color: footerLinkColor }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-bg)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
                 >
                   {l.label}
@@ -109,7 +114,7 @@ export default function Footer() {
                   onClick={(e) => handleNav(e, l)}
                   className="font-sans text-sm transition-colors duration-200"
                   style={{ color: footerLinkColor }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-bg)')}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
                 >
                   {l.label}
@@ -119,9 +124,9 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <p className="text-xs tracking-widest uppercase font-medium mb-5" style={{ color: 'var(--color-bg)', letterSpacing: '0.2em' }}>Visit & Connect</p>
+            <p className="text-xs tracking-widest uppercase font-medium mb-5" style={{ color: 'var(--color-text)', letterSpacing: '0.2em' }}>Visit & Connect</p>
 
-            <div className="text-sm space-y-1 mb-5" style={{ color: 'hsl(36 71.43% 98.63% / 0.62)' }}>
+            <div className="text-sm space-y-1 mb-5" style={{ color: 'var(--color-muted)' }}>
               <p>1275 Finch Ave W</p>
               <p>North York, ON M3J 0L5</p>
               <p>Toronto, Canada</p>
@@ -131,7 +136,7 @@ export default function Footer() {
               href="tel:+14379801164"
               className="block text-sm mb-5 transition-colors duration-200"
               style={{ color: footerLinkColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-bg)')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
             >
               +1 (437) 980-1164
@@ -143,7 +148,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 mb-6 transition-colors duration-200"
               style={{ color: footerLinkColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-bg)')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
               onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
             >
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -155,15 +160,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div style={{ borderTop: '1px solid hsl(36 71.43% 98.63% / 0.14)' }}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs" style={{ color: 'hsl(36 71.43% 98.63% / 0.42)', letterSpacing: '0.06em' }}>
+      <div style={{ borderTop: '1px solid hsl(0 0.97% 20.2% / 0.14)' }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
             © {new Date().getFullYear()} Lustrouz Aesthetics. All rights reserved.
           </p>
-          <p className="text-xs" style={{ color: 'hsl(36 71.43% 98.63% / 0.42)', letterSpacing: '0.06em' }}>
+          <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
             North York · Toronto, ON
           </p>
         </div>
+      </div>
       </div>
     </footer>
   )

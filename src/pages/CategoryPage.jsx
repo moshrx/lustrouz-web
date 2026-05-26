@@ -5,7 +5,8 @@ import Footer from '../components/Footer'
 import { BOOKING_URL } from '../lib/constants'
 import { findCategoryBySlug } from '../lib/treatmentCategories'
 
-function TreatmentAccordion({ name, desc, index, isOpen, onToggle }) {
+function TreatmentAccordion({ name, desc, images, index, isOpen, onToggle }) {
+  const paras = desc.split('\n\n')
   return (
     <div
       style={{
@@ -46,17 +47,73 @@ function TreatmentAccordion({ name, desc, index, isOpen, onToggle }) {
         </span>
       </button>
       {isOpen && (
-        <p
-          className="font-sans font-light pb-6"
-          style={{
-            color: 'var(--color-muted)',
-            fontSize: '1rem',
-            lineHeight: 1.75,
-            maxWidth: '60ch',
-          }}
-        >
-          {desc}
-        </p>
+        <div className="pb-8">
+          <div
+            className="font-sans font-light mb-8"
+            style={{
+              color: 'var(--color-muted)',
+              fontSize: '1rem',
+              lineHeight: 1.75,
+              maxWidth: '60ch',
+            }}
+          >
+            {paras.map((para, i) => (
+              <p key={i} style={{ marginBottom: i < paras.length - 1 ? '1em' : 0 }}>
+                {para}
+              </p>
+            ))}
+          </div>
+
+          {images && images.length > 0 && (
+            <div
+              className="grid gap-4"
+              style={{
+                gridTemplateColumns: images.length === 1
+                  ? '1fr'
+                  : images.length === 2
+                    ? 'repeat(2, 1fr)'
+                    : 'repeat(auto-fill, minmax(240px, 1fr))',
+              }}
+            >
+              {images.map((img, i) => (
+                <figure key={i} className="m-0">
+                  <div
+                    style={{
+                      borderRadius: '6px',
+                      overflow: 'hidden',
+                      background: 'var(--color-surface)',
+                      aspectRatio: img.isBeforeAfter ? '1 / 1' : 'auto',
+                    }}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.caption}
+                      loading="lazy"
+                      decoding="async"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                      }}
+                    />
+                  </div>
+                  <figcaption
+                    className="font-sans mt-2"
+                    style={{
+                      color: 'var(--color-muted)',
+                      fontSize: '0.78rem',
+                      lineHeight: 1.5,
+                      opacity: 0.75,
+                    }}
+                  >
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+        </div>
       )}
     </div>
   )
@@ -157,6 +214,7 @@ export default function CategoryPage() {
                   key={t.name}
                   name={t.name}
                   desc={t.desc}
+                  images={t.images}
                   index={i}
                   isOpen={openIndex === i}
                   onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}

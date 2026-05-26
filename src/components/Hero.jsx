@@ -67,7 +67,7 @@ export default function Hero() {
             Advanced skincare treatments tailored to your skin goals.
           </h1>
           <p className="lead-copy hero__copy">
-            Expert care and advanced treatments, customized for acne, pigmentation, sensitivity, and compromised barriers. Science, skill, and subtle luxury.
+            Expert care and advanced treatments, customized for acne, pigmentation, sensitivity, and compromised barriers.
           </p>
           <div className="hero__actions">
             <a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">

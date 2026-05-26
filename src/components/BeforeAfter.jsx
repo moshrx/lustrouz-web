@@ -10,7 +10,7 @@ import { BOOKING_URL } from '../lib/constants'
 gsap.registerPlugin(ScrollTrigger)
 
 const results = [
-  { src: img2, label: 'Acne Clearing', detail: 'Multi-step custom protocol', aspectRatio: '4/3' },
+  { src: img2, label: 'Acne Clearing', detail: 'Multi-step custom protocol' },
   { src: img5, label: 'Hyperpigmentation', detail: 'Targeted light therapy' },
   { src: img3, label: 'Skin Tag Removal', detail: 'Precision, painless treatment' },
   { src: img4, label: 'Texture Refinement', detail: 'Smoother, healthier skin' },
@@ -91,7 +91,7 @@ export default function BeforeAfter() {
             >
               <div
                 className="relative overflow-hidden"
-                style={{ aspectRatio: r.aspectRatio ?? '4/5', background: 'var(--color-surface-2)' }}
+                style={{ aspectRatio: '4/5', background: 'var(--color-surface-2)' }}
               >
                 <img
                   src={r.src}

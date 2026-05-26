@@ -69,7 +69,7 @@ export default function VisitUs() {
               fontWeight: 400,
             }}
           >
-            Visit our <em style={{ color: 'var(--color-accent)', fontStyle: 'italic', fontWeight: 300 }}>Lustrouz clinic.</em>
+            Visit our <em style={{ color: 'var(--color-accent)', fontStyle: 'italic', fontWeight: 300 }}> clinic.</em>
           </h2>
           <p
             className="font-sans font-light max-w-xl mx-auto"

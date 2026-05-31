@@ -596,9 +596,16 @@
 
 .hero__title {
   color: var(--color-bg);
-  max-width: 14ch;
+  max-width: 22ch;
   text-wrap: balance;
   text-shadow: 0 2px 24px hsl(18.57 52.5% 6% / 0.35);
+}
+
+@media (min-width: 641px) {
+  .hero__title {
+    max-width: 22ch;
+    text-wrap: pretty;
+  }
 }
 
 .hero__copy {
@@ -739,7 +746,7 @@
 .category-hero {
   isolation: isolate;
   background: var(--color-deep-accent);
-  min-height: max(340px, 40svh);
+  min-height: max(520px, 72svh);
   overflow: hidden;
   position: relative;
 }
@@ -807,7 +814,7 @@
 
 @media (max-width: 900px) {
   .category-hero {
-    min-height: max(300px, 44svh);
+    min-height: max(380px, 56svh);
   }
 
   .category-hero__media img {

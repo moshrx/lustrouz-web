@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logoImg from '../assets/optimized/logo-transparent.png'
 import { BOOKING_URL, INSTAGRAM, SHOP_URL, TIKTOK } from '../lib/constants'
@@ -13,6 +14,7 @@ const navLinks = [
 export default function Footer() {
   const location = useLocation()
   const navigate = useNavigate()
+  const [navOpen, setNavOpen] = useState(false)
 
   const handleNav = (e, link) => {
     if (link.external) return
@@ -31,7 +33,7 @@ export default function Footer() {
   return (
     <footer>
       <div
-        className="px-5 sm:px-8 lg:px-12 py-6 sm:py-7"
+        className="px-5 sm:px-8 lg:px-12 py-3 sm:py-7"
         style={{
           background: 'var(--color-deep-accent)',
           color: 'var(--color-bg)',
@@ -69,7 +71,7 @@ export default function Footer() {
       </div>
 
       <div style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-6 sm:py-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-4 sm:py-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
           <div className="md:col-span-5 flex flex-col items-start">
             <Link to="/" className="mb-4 inline-flex" aria-label="Lustrouz Aesthetics Home">
@@ -91,36 +93,48 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-3 flex flex-col gap-3.5">
-            <p className="text-xs tracking-widest uppercase font-medium mb-1" style={{ color: 'var(--color-text)', letterSpacing: '0.2em' }}>Navigation</p>
-            {navLinks.map((l) => (
-              l.external ? (
-                <a
-                  key={l.label}
-                  href={l.to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-sm transition-colors duration-200"
-                  style={{ color: footerLinkColor }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
-                >
-                  {l.label}
-                </a>
-              ) : (
-                <Link
-                  key={l.label}
-                  to={l.to}
-                  onClick={(e) => handleNav(e, l)}
-                  className="font-sans text-sm transition-colors duration-200"
-                  style={{ color: footerLinkColor }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
-                >
-                  {l.label}
-                </Link>
-              )
-            ))}
+          <div className="md:col-span-3">
+            <button
+              type="button"
+              onClick={() => setNavOpen((o) => !o)}
+              className="md:pointer-events-none w-full flex items-center justify-between md:justify-start gap-2 mb-1"
+            >
+              <p className="text-xs tracking-widest uppercase font-medium" style={{ color: 'var(--color-text)', letterSpacing: '0.2em' }}>Navigation</p>
+              <span
+                className="md:hidden text-base leading-none transition-transform duration-200"
+                style={{ color: 'var(--color-accent)', transform: navOpen ? 'rotate(45deg)' : 'rotate(0)' }}
+              >+</span>
+            </button>
+            <div className={`flex-col gap-3.5 ${navOpen ? 'flex' : 'hidden'} md:flex mt-3`}>
+              {navLinks.map((l) => (
+                l.external ? (
+                  <a
+                    key={l.label}
+                    href={l.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm transition-colors duration-200"
+                    style={{ color: footerLinkColor }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={l.label}
+                    to={l.to}
+                    onClick={(e) => handleNav(e, l)}
+                    className="font-sans text-sm transition-colors duration-200"
+                    style={{ color: footerLinkColor }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
+                  >
+                    {l.label}
+                  </Link>
+                )
+              ))}
+            </div>
           </div>
 
           <div className="md:col-span-4">
@@ -177,7 +191,7 @@ export default function Footer() {
       </div>
 
       <div style={{ borderTop: '1px solid hsl(0 0.97% 20.2% / 0.14)' }}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-2 sm:py-3 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
           <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
             © {new Date().getFullYear()} Lustrouz Aesthetics. All rights reserved.
           </p>

@@ -55,6 +55,16 @@ export default function Testimonials() {
     setActive(i)
   }
 
+  const handleDotKeyDown = (e, i) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault()
+      goTo((i + 1) % reviews.length)
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault()
+      goTo((i - 1 + reviews.length) % reviews.length)
+    }
+  }
+
   useEffect(() => {
     const timer = setInterval(() => {
       if (pausedRef.current) return
@@ -72,6 +82,9 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
+      role="region"
+      aria-label="Client testimonials"
+      aria-roledescription="carousel"
       className="relative py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12 overflow-hidden"
       style={{ background: 'var(--color-bg)' }}
       onMouseEnter={() => (pausedRef.current = true)}
@@ -157,11 +170,13 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="flex justify-center gap-3 mt-8 sm:mt-10">
-          {reviews.map((_, i) => (
+        <div role="tablist" aria-label="Select testimonial" className="flex justify-center gap-3 mt-8 sm:mt-10">
+          {reviews.map((rev, i) => (
             <button
               key={i}
+              role="tab"
               onClick={() => goTo(i)}
+              onKeyDown={(e) => handleDotKeyDown(e, i)}
               className="rounded-full transition-all duration-300"
               style={{
                 width: i === active ? '28px' : '8px',
@@ -169,8 +184,9 @@ export default function Testimonials() {
                 background: i === active ? 'var(--color-accent)' : 'rgba(23,23,23,0.35)',
                 minHeight: 'auto',
               }}
-              aria-label={`Show review ${i + 1}`}
-              aria-current={i === active ? 'true' : 'false'}
+              aria-label={`Review by ${rev.name}`}
+              aria-selected={i === active}
+              tabIndex={i === active ? 0 : -1}
             />
           ))}
         </div>

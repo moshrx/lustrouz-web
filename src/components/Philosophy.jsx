@@ -159,7 +159,7 @@ export default function Philosophy() {
               className="font-sans font-light mb-5"
               style={{ color: 'var(--color-muted)', fontSize: '1.02rem', lineHeight: 1.85 }}
             >
-              At Lustrouz Aesthetics, we are dedicated to elevating your skin through expert care, advanced treatments, and a personalized approach to beauty. We believe that true confidence begins with healthy, well-nurtured skin, and our goal is to help you achieve just that.
+              At Lustrouz Aesthetics, we are dedicated to supporting your skin health through expert care, advanced treatments, and a personalized approach to aesthetics. We believe that well-nurtured skin can be a meaningful part of how you feel in yourself, and our goal is to help you get there.
             </p>
             <p
               className="font-sans font-light mb-5"
@@ -171,7 +171,7 @@ export default function Philosophy() {
               className="font-sans font-light mb-5"
               style={{ color: 'var(--color-muted)', fontSize: '1.02rem', lineHeight: 1.85 }}
             >
-              We focus on creating customized treatment plans for concerns such as acne, sensitivity, pigmentation, and compromised skin barriers. Every service begins with an in-depth consultation to ensure we fully understand your skin and provide solutions that offer real, lasting results.
+              We focus on creating customized treatment plans for concerns such as acne, sensitivity, pigmentation, and compromised skin barriers. Every service begins with an in-depth consultation to ensure we fully understand your skin and recommend treatments suited to your individual needs.
             </p>
             <p
               className="font-sans font-light mb-5"

@@ -6,7 +6,7 @@ import { BOOKING_URL, INSTAGRAM, SHOP_URL, TIKTOK } from '../lib/constants'
 const navLinks = [
   { label: 'Explore Treatments', to: '/treatments' },
   { label: 'Transformations', to: '/', anchor: '#results' },
-  { label: 'Shop', to: SHOP_URL, external: true },
+  { label: 'Shop', to: SHOP_URL, external: true, note: 'Partner store — GlyMed Plus Canada' },
   { label: 'Plan Your Visit', to: '/', anchor: '#visit' },
   { label: 'About', to: '/', anchor: '#about' },
 ]
@@ -108,18 +108,24 @@ export default function Footer() {
             <div className={`flex-col gap-3.5 ${navOpen ? 'flex' : 'hidden'} md:flex mt-3`}>
               {navLinks.map((l) => (
                 l.external ? (
-                  <a
-                    key={l.label}
-                    href={l.to}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-sans text-sm transition-colors duration-200"
-                    style={{ color: footerLinkColor }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
-                  >
-                    {l.label}
-                  </a>
+                  <div key={l.label}>
+                    <a
+                      href={l.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-sm transition-colors duration-200"
+                      style={{ color: footerLinkColor }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-text)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = footerLinkColor)}
+                    >
+                      {l.label}
+                    </a>
+                    {l.note && (
+                      <p className="font-sans text-xs mt-0.5" style={{ color: 'hsl(0 0.97% 20.2% / 0.38)', lineHeight: 1.4 }}>
+                        {l.note}
+                      </p>
+                    )}
+                  </div>
                 ) : (
                   <Link
                     key={l.label}
@@ -190,14 +196,44 @@ export default function Footer() {
         </div>
       </div>
 
+      <div style={{ borderTop: '1px solid hsl(0 0.97% 20.2% / 0.14)', background: 'hsl(36 20% 97%)' }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-3 text-center">
+          <p className="text-xs font-sans" style={{ color: 'hsl(0 0.97% 20.2% / 0.45)', lineHeight: 1.6 }}>
+            The information on this website is for general informational purposes only and does not constitute medical advice. Treatment results vary by individual. All services are aesthetic, not medical, and are not intended to diagnose, treat, cure, or prevent any disease or medical condition. A consultation is required before any treatment is performed.
+          </p>
+        </div>
+      </div>
+
       <div style={{ borderTop: '1px solid hsl(0 0.97% 20.2% / 0.14)' }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-2 sm:py-3 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
           <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
             © {new Date().getFullYear()} Lustrouz Aesthetics. All rights reserved.
           </p>
-          <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
-            North York · Toronto, ON
-          </p>
+          <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
+            <Link
+              to="/privacy-policy"
+              className="text-xs transition-colors duration-200"
+              style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'hsl(0 0.97% 20.2% / 0.55)')}
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.3)' }}>·</span>
+            <Link
+              to="/terms"
+              className="text-xs transition-colors duration-200"
+              style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'hsl(0 0.97% 20.2% / 0.55)')}
+            >
+              Terms & Conditions
+            </Link>
+            <span className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.3)' }}>·</span>
+            <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
+              North York · Toronto, ON
+            </p>
+          </div>
         </div>
       </div>
       </div>

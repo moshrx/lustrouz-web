@@ -33,7 +33,7 @@ const concerns = [
   },
   {
     title: 'Hair Loss & Thinning',
-    desc: 'Thinning, shedding, and post-partum hair loss. PRP and scalp restoration therapies that reactivate growth.',
+    desc: 'Thinning, shedding, and post-partum hair loss. PRP and scalp restoration therapies designed to support the natural hair growth cycle.',
     icon: '❋',
   },
 ]
@@ -96,7 +96,7 @@ export default function BeautyConcerns() {
           {concerns.map((c) => (
             <div
               key={c.title}
-              className="rounded-2xl p-7 sm:p-8 flex flex-col transition-all duration-500 group cursor-pointer"
+              className="rounded-2xl p-7 sm:p-8 flex flex-col transition-all duration-500 group"
               style={{ background: 'var(--color-surface)', minHeight: '100%', border: '1px solid rgba(23,23,23,0.15)' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-6px)'

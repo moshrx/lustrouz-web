@@ -4,6 +4,8 @@ import App from './App.jsx'
 import { treatmentCategories } from './lib/treatmentCategories.js'
 
 const CategoryPage = lazy(() => import('./pages/CategoryPage.jsx'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
+const Terms = lazy(() => import('./pages/Terms.jsx'))
 
 const fallback = <div className="site-shell" />
 
@@ -21,6 +23,22 @@ export default function Router() {
           element={
             <Suspense fallback={fallback}>
               <CategoryPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Suspense fallback={fallback}>
+              <PrivacyPolicy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <Suspense fallback={fallback}>
+              <Terms />
             </Suspense>
           }
         />

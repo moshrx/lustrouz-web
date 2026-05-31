@@ -8,6 +8,7 @@ import BeautyConcerns from './components/BeautyConcerns'
 import BeforeAfter from './components/BeforeAfter'
 import Gallery from './components/Gallery'
 import Testimonials from './components/Testimonials'
+import BShapeSpotlight from './components/BShapeSpotlight'
 import VisitUs from './components/VisitUs'
 import Footer from './components/Footer'
 
@@ -31,6 +32,7 @@ export default function App() {
         <Marquee />
         <Philosophy />
         <BeautyConcerns />
+        <BShapeSpotlight />
         <BeforeAfter />
         <Gallery />
         <Testimonials />

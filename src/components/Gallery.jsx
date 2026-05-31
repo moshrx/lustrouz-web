@@ -11,12 +11,12 @@ import pic8 from '../assets/pics/IMG_8518.jpeg'
 gsap.registerPlugin(ScrollTrigger)
 
 const photos = [
-  { src: pic2, alt: 'Custom treatment in progress' },
-  { src: pic3, alt: 'Skincare ritual' },
-  { src: pic7, alt: 'Steam-and-cold treatment under the LED arc light' },
-  { src: pic5, alt: 'Treatment finishing touches' },
-  { src: pic8, alt: 'LED red-light therapy session in progress' },
-  { src: pic6, alt: 'Glow after treatment' },
+  { src: pic2, alt: 'Aesthetician performing a customized facial treatment at Lustrouz Aesthetics studio' },
+  { src: pic3, alt: 'Close-up of a professional skincare serum application during a facial treatment' },
+  { src: pic7, alt: 'Steam and cold therapy being applied under the LED arc light during a facial session' },
+  { src: pic5, alt: 'Finishing touches being applied during a professional facial treatment at Lustrouz Aesthetics' },
+  { src: pic8, alt: 'Client receiving LED red-light therapy during a skin treatment session' },
+  { src: pic6, alt: 'Client skin showing a healthy glow following a professional facial treatment' },
 ]
 
 export default function Gallery() {

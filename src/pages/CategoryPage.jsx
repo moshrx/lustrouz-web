@@ -48,7 +48,7 @@ function ImgFrame({ img }) {
   )
 }
 
-function TreatmentAccordion({ name, desc, images, index, isOpen, onToggle }) {
+function TreatmentAccordion({ name, desc, images, index, isOpen, onToggle, panelId }) {
   const paras = desc.split('\n\n')
   const btnRef = useRef(null)
 
@@ -77,6 +77,7 @@ function TreatmentAccordion({ name, desc, images, index, isOpen, onToggle }) {
         type="button"
         onClick={handleToggle}
         aria-expanded={isOpen}
+        aria-controls={panelId}
         className="w-full flex items-baseline justify-between gap-6 py-5 sm:py-6 text-left"
         style={{ background: 'transparent', minHeight: 'auto' }}
       >
@@ -106,7 +107,7 @@ function TreatmentAccordion({ name, desc, images, index, isOpen, onToggle }) {
         </span>
       </button>
       {isOpen && (
-        <div className="pb-8">
+        <div id={panelId} role="region" aria-label={name} className="pb-8">
           {/* When 4+ images: on desktop, pull first image to the right of the description */}
           {images && images.length >= 4 ? (
             <>
@@ -228,7 +229,7 @@ export default function CategoryPage() {
           <div className="category-hero__media" aria-hidden="true">
             <img
               src={category.heroImage}
-              alt=""
+              alt={`${category.title} — Lustrouz Aesthetics`}
               fetchPriority="high"
               style={category.heroPosition ? { objectPosition: category.heroPosition } : undefined}
             />
@@ -289,6 +290,7 @@ export default function CategoryPage() {
                   index={i}
                   isOpen={openIndex === i}
                   onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
+                  panelId={`treatment-panel-${i}`}
                 />
               ))}
             </div>

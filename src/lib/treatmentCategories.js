@@ -2,7 +2,7 @@
 // and per-category pages all read from here.
 
 import signatureFacialImg from '../assets/optimized/cat-signature-facials.jpeg'
-import advancedFacialImg from '../assets/optimized/cat-advanced-facials.jpeg'
+import advancedFacialImg from '../assets/optimized/cat-advanced-facials-new.jpeg'
 import microneedlingImg from '../assets/optimized/cat-microneedling-new.jpeg'
 import skinTagImg from '../assets/optimized/cat-skin-tag.jpeg'
 import bodyContouringImg from '../assets/optimized/cat-body-contouring.jpeg'
@@ -26,6 +26,8 @@ import tpBshapeBeforeAfter1 from '../assets/optimized/tp-b-shape-before-after.jp
 import tpBshapeBeforeAfter2 from '../assets/optimized/tp-bshape-before-after.jpeg'
 import tpBshapeDevice from '../assets/optimized/tp-bshape-device.jpeg'
 import tpBshapePromo from '../assets/optimized/tp-bshape.jpeg'
+import tpBshapeDiastasis from '../assets/optimized/tp-bshape-diastasis.jpeg'
+import tpBshapeDefinition from '../assets/optimized/tp-bshape-definition.webp'
 import tpClassicMicroneedlingBenefits from '../assets/optimized/tp-classic-skin-renewal-series-microneedling.jpeg'
 import tpCollagenInductionGraphic from '../assets/optimized/tp-collagen-induction.jpeg'
 import tpXcellarisScalpBeforeAfter1 from '../assets/optimized/tp-xcellarispro-scalp-restoration-therapy.jpeg'
@@ -86,7 +88,7 @@ export const treatmentCategories = [
     summary:
       'Medical-grade treatments for visible, lasting change. Peels, hydro-infusion, brightening, and skin correction protocols tailored to your specific concerns.',
     heroImage: advancedFacialImg,
-    heroPosition: '50% 35%',
+    heroPosition: '50% 40%',
     treatments: [
       {
         name: 'EstheGlow Hydro Infusion Facial',
@@ -225,6 +227,8 @@ export const treatmentCategories = [
         desc: 'The B-Shape T.M.C is a revolutionary treatment that targets muscle gain and body contouring. Using High Intensity Tesla Electromagnetic Contractions, this air cooling device is designed to be the best ally in effortless bodybuilding and reaching the ultimate levels of health and confidence you deserve.\n\nBenefits include fat reduction targeting stubborn fat deposits in areas such as the abdomen, thighs, buttocks, and arms for a more sculpted appearance; skin tightening to stimulate collagen production and improve skin elasticity for firmer, smoother skin; cellulite reduction to minimize the appearance of cellulite and dimpled skin for a smoother, more even texture. Non-invasive with no surgery, incisions, or downtime, and fully customizable to target your specific goals and problem areas.',
         images: [
           { src: tpBshapeDevice, caption: 'B-Shape TMC device — professional body contouring system used at Lustrouz' },
+          { src: tpBshapeDiastasis, caption: 'B-Shape TMC — Diastasis Abdominal treatment for post-pregnancy core restoration and tightening', ratio: '1/1' },
+          { src: tpBshapeDefinition, caption: 'B-Shape TMC — targets stubborn fat and maximizes muscle definition for a sculpted silhouette', ratio: '1/1' },
           { src: tpBshapeBeforeAfter1, caption: 'Before & after — visible abdominal contouring and fat reduction after 4 sessions in 8 days', isBeforeAfter: true },
           { src: tpBshapeBeforeAfter2, caption: 'Before & after — improved waist definition and a firmer, more sculpted silhouette after 3 sessions', isBeforeAfter: true },
         ],

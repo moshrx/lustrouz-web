@@ -13,7 +13,7 @@ const links = [
     })),
   },
   { label: 'Transformations', to: '/', anchor: '#results' },
-  { label: 'Shop', to: SHOP_URL, external: true },
+  { label: 'Shop', to: SHOP_URL, external: true, note: 'Partner store' },
   { label: 'Plan Your Visit', to: '/', anchor: '#visit' },
   { label: 'About', to: '/', anchor: '#about' },
 ]
@@ -169,8 +169,11 @@ export default function Navbar() {
             }
             if (link.external) {
               return (
-                <a key={link.label} href={link.to} target="_blank" rel="noopener noreferrer">
+                <a key={link.label} href={link.to} target="_blank" rel="noopener noreferrer" className="site-nav__external-link">
                   {link.label}
+                  {link.note && (
+                    <span className="site-nav__partner-badge">{link.note}</span>
+                  )}
                 </a>
               )
             }
@@ -234,8 +237,12 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
+                  className="mobile-menu__external-link"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {link.note && (
+                    <span className="mobile-menu__partner-badge">{link.note}</span>
+                  )}
                 </a>
               )
             }

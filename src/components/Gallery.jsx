@@ -1,14 +1,9 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import pic2 from '../assets/pics/IMG_8346.JPG.jpeg'
 import pic3 from '../assets/pics/IMG_8347.JPG.jpeg'
 import pic5 from '../assets/pics/IMG_8349.JPG.jpeg'
 import pic6 from '../assets/pics/IMG_8353.JPG.jpeg'
 import pic7 from '../assets/pics/IMG_8460.jpeg'
 import pic8 from '../assets/pics/IMG_8518.jpeg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const photos = [
   { src: pic2, alt: 'Aesthetician performing a customized facial treatment at Lustrouz Aesthetics studio' },
@@ -20,30 +15,9 @@ const photos = [
 ]
 
 export default function Gallery() {
-  const sectionRef = useRef(null)
-  const gridRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        gridRef.current?.children || [],
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.08,
-          duration: 0.85,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
-        }
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section
-      ref={sectionRef}
       className="py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12"
       style={{ background: 'var(--color-bg)' }}
     >
@@ -68,7 +42,6 @@ export default function Gallery() {
         </div>
 
         <div
-          ref={gridRef}
           className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-5"
         >
           {photos.map((p, i) => (

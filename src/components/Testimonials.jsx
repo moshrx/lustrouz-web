@@ -1,8 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useState, useEffect } from 'react'
 
 const reviews = [
   {
@@ -33,26 +29,12 @@ const reviews = [
 
 export default function Testimonials() {
   const [active, setActive] = useState(0)
-  const sectionRef = useRef(null)
-  const quoteRef = useRef(null)
-  const pausedRef = useRef(false)
-
-  useEffect(() => {
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
-      }
-    )
-  }, [])
+  const [quoteVisible, setQuoteVisible] = useState(true)
+  const pausedRef = { current: false }
 
   const goTo = (i) => {
-    gsap.fromTo(quoteRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' })
-    setActive(i)
+    setQuoteVisible(false)
+    setTimeout(() => { setActive(i); setQuoteVisible(true) }, 180)
   }
 
   const handleDotKeyDown = (e, i) => {
@@ -68,11 +50,11 @@ export default function Testimonials() {
   useEffect(() => {
     const timer = setInterval(() => {
       if (pausedRef.current) return
-      setActive((prev) => {
-        const next = (prev + 1) % reviews.length
-        gsap.fromTo(quoteRef.current, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' })
-        return next
-      })
+      setQuoteVisible(false)
+      setTimeout(() => {
+        setActive((prev) => (prev + 1) % reviews.length)
+        setQuoteVisible(true)
+      }, 180)
     }, 6000)
     return () => clearInterval(timer)
   }, [])
@@ -81,7 +63,6 @@ export default function Testimonials() {
 
   return (
     <section
-      ref={sectionRef}
       role="region"
       aria-label="Client testimonials"
       aria-roledescription="carousel"
@@ -145,7 +126,11 @@ export default function Testimonials() {
             </p>
           </div>
 
-          <div ref={quoteRef} aria-live="polite" aria-atomic="true">
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            style={{ transition: 'opacity 0.18s ease, transform 0.18s ease', opacity: quoteVisible ? 1 : 0, transform: quoteVisible ? 'none' : 'translateY(10px)' }}
+          >
             <blockquote
               className="font-serif font-light italic mb-7 sm:mb-9 mx-auto text-center"
               style={{

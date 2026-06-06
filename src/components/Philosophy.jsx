@@ -1,9 +1,4 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import estheticianImg from '../assets/optimized/esthetician-shahama.jpeg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const pillars = [
   { label: 'Intentional', detail: 'Every plan begins with a thorough consultation.' },
@@ -18,70 +13,9 @@ const stats = [
 ]
 
 export default function Philosophy() {
-  const sectionRef = useRef(null)
-  const cardRef = useRef(null)
-  const copyRef = useRef(null)
-  const pillarsRef = useRef(null)
-  const statsRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        cardRef.current,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-        }
-      )
-      gsap.fromTo(
-        copyRef.current?.children || [],
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.12,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' },
-        }
-      )
-      gsap.fromTo(
-        pillarsRef.current?.children || [],
-        { y: 25, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.15,
-          duration: 0.85,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: pillarsRef.current, start: 'top 85%' },
-        }
-      )
-      gsap.fromTo(
-        statsRef.current?.children || [],
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.1,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: statsRef.current, start: 'top 85%' },
-        }
-      )
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
     <section
       id="about"
-      ref={sectionRef}
       className="py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12"
       style={{ background: 'var(--color-surface)' }}
     >
@@ -91,7 +25,6 @@ export default function Philosophy() {
           {/* Founder photo card */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <figure
-              ref={cardRef}
               className="relative rounded-3xl overflow-hidden"
               style={{
                 border: '1px solid rgba(23,23,23,0.15)',
@@ -139,7 +72,7 @@ export default function Philosophy() {
           </div>
 
           {/* Right copy */}
-          <div ref={copyRef} className="lg:col-span-7 order-1 lg:order-2">
+          <div className="lg:col-span-7 order-1 lg:order-2">
             <p className="text-xs tracking-widest uppercase mb-5 font-medium" style={{ color: 'var(--color-accent-dark)', letterSpacing: '0.24em' }}>
               <span className="inline-block w-8 h-px align-middle mr-3" style={{ background: 'var(--color-accent)' }} />
               About the Clinic
@@ -196,7 +129,7 @@ export default function Philosophy() {
             <div className="h-px flex-1 max-w-20" style={{ background: 'linear-gradient(to left, transparent, var(--color-accent))' }} />
           </div>
 
-          <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 lg:gap-14">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 lg:gap-14">
             {pillars.map((p, i) => (
               <div key={p.label} className="text-center">
                 <p
@@ -223,7 +156,6 @@ export default function Philosophy() {
 
         {/* Stats */}
         <div
-          ref={statsRef}
           className="grid grid-cols-3 gap-4 sm:gap-8 pt-12 sm:pt-14"
           style={{ borderTop: '1px solid rgba(23,23,23,0.25)' }}
         >

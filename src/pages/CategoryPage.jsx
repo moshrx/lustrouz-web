@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { BOOKING_URL } from '../lib/constants'
 import { findCategoryBySlug } from '../lib/treatmentCategories'
+import { useSeoMeta } from '../lib/useSeoMeta'
 
 const imgFrameStyle = `
   .img-frame { aspect-ratio: 4 / 3; }
@@ -193,12 +194,40 @@ export default function CategoryPage() {
   const category = findCategoryBySlug(slug)
   const [openIndex, setOpenIndex] = useState(0)
 
+  const pageTitle = category
+    ? `${category.title} · Lustrouz Aesthetics Toronto`
+    : 'Treatments · Lustrouz Aesthetics'
+  const pageDesc = category
+    ? `${category.summary} Book your ${category.title.toLowerCase()} appointment at Lustrouz Aesthetics in North York, Toronto.`
+    : 'Explore advanced skincare treatments at Lustrouz Aesthetics in North York, Toronto.'
+  const pageUrl = category ? `https://lustrouz.com/treatments/${slug}` : 'https://lustrouz.com/treatments'
+
+  useSeoMeta({
+    title: pageTitle,
+    description: pageDesc,
+    canonical: pageUrl,
+    ogImage: 'https://lustrouz.com/og-image.jpg',
+  })
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-    if (category) {
-      document.title = `${category.title} · Lustrouz Aesthetics`
-    }
+
+    if (!category) return
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.id = 'breadcrumb-jsonld'
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://lustrouz.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Treatments', item: 'https://lustrouz.com/treatments' },
+        { '@type': 'ListItem', position: 3, name: category.title, item: `https://lustrouz.com/treatments/${slug}` },
+      ],
+    })
+    document.head.appendChild(script)
     return () => {
+      document.getElementById('breadcrumb-jsonld')?.remove()
       document.title = 'Lustrouz Aesthetics · Medical Skincare Clinic · Toronto'
     }
   }, [category, slug])

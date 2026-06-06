@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useSeoMeta } from './lib/useSeoMeta'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
@@ -14,6 +15,13 @@ import Footer from './components/Footer'
 
 export default function App() {
   const location = useLocation()
+
+  useSeoMeta({
+    title: 'Lustrouz Aesthetics · Medical Skincare Clinic · Toronto',
+    description: 'Lustrouz Aesthetics is a refined medical skincare clinic led by Shahama Nellanchery, Certified Medical Aesthetician. Customized treatments for acne, pigmentation, sensitivity & barrier repair in North York, Toronto.',
+    canonical: 'https://lustrouz.com/',
+    ogImage: 'https://lustrouz.com/og-image.jpg',
+  })
 
   useEffect(() => {
     const target = location.state?.scrollTo

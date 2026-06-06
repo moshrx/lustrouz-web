@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { renderPolicyBody } from '../lib/renderPolicy'
+import { useSeoMeta } from '../lib/useSeoMeta'
 
 const sections = [
   {
@@ -123,9 +124,15 @@ If you are not satisfied with our response, you may contact the **Office of the 
 
 
 export default function PrivacyPolicy() {
+  useSeoMeta({
+    title: 'Privacy Policy · Lustrouz Aesthetics',
+    description: 'Read the privacy policy for Lustrouz Aesthetics. Learn how we collect, use, and protect your personal information.',
+    canonical: 'https://lustrouz.com/privacy-policy',
+    ogImage: 'https://lustrouz.com/og-image.jpg',
+  })
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-    document.title = 'Privacy Policy · Lustrouz Aesthetics'
     return () => { document.title = 'Lustrouz Aesthetics · Medical Skincare Clinic · Toronto' }
   }, [])
 

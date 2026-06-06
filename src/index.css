@@ -1004,6 +1004,8 @@
   50% { transform: translateY(-8px); }
 }
 
+/* Scroll reveal: initial hidden state is applied via JS inline styles (progressive enhancement) */
+
 /* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1013,6 +1015,11 @@
     scroll-behavior: auto !important;
   }
   .marquee-track { animation: none !important; }
+  /* Force all elements visible regardless of JS inline styles */
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Mobile-friendly heading scale tweaks */

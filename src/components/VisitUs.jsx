@@ -1,54 +1,15 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import studio800 from '../assets/optimized/studio-reception-800.jpeg'
 import studio1200 from '../assets/optimized/studio-reception-1400.jpeg'
 import studioTreatmentDay from '../assets/optimized/studio-treatment-day.jpeg'
-
-gsap.registerPlugin(ScrollTrigger)
-
 import { BOOKING_URL, INSTAGRAM, TIKTOK } from '../lib/constants'
 
 const MAPS_LINK = 'https://maps.app.goo.gl/s4hyoXD8gRuHbBUs9?g_st=ic'
 
 export default function VisitUs() {
-  const sectionRef = useRef(null)
-  const leftRef = useRef(null)
-  const rightRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        leftRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-        }
-      )
-      gsap.fromTo(
-        rightRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-        }
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section
       id="visit"
-      ref={sectionRef}
       className="py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12"
       style={{ background: 'var(--color-surface)' }}
     >
@@ -82,7 +43,7 @@ export default function VisitUs() {
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           {/* Left: Info */}
-          <div ref={leftRef}>
+          <div>
             {/* Studio photos of the real Lustrouz Aesthetics studio */}
             <div
               className="rounded-2xl overflow-hidden mb-4 sm:mb-5"
@@ -205,7 +166,6 @@ export default function VisitUs() {
 
           {/* Right: Map */}
           <div
-            ref={rightRef}
             className="rounded-2xl overflow-hidden lg:sticky lg:top-28"
             style={{ height: 'clamp(360px, 60vh, 640px)' }}
           >

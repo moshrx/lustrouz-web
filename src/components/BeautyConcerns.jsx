@@ -1,9 +1,3 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-
-gsap.registerPlugin(ScrollTrigger)
 
 const concerns = [
   {
@@ -39,31 +33,10 @@ const concerns = [
 ]
 
 export default function BeautyConcerns() {
-  const sectionRef = useRef(null)
-  const cardsRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        cardsRef.current?.children || [],
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.12,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-        }
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section
       id="concerns"
-      ref={sectionRef}
       className="py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12"
       style={{ background: 'var(--color-bg)' }}
     >
@@ -92,7 +65,7 @@ export default function BeautyConcerns() {
         </div>
 
         {/* Cards grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {concerns.map((c) => (
             <div
               key={c.title}

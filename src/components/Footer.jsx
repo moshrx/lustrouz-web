@@ -206,9 +206,26 @@ export default function Footer() {
 
       <div style={{ borderTop: '1px solid hsl(0 0.97% 20.2% / 0.14)' }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-2 sm:py-3 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
-          <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
-            © {new Date().getFullYear()} Lustrouz Aesthetics. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
+            <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
+              © {new Date().getFullYear()} Lustrouz Aesthetics. All rights reserved.
+            </p>
+            <span className="hidden sm:inline text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.3)' }}>·</span>
+            <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.45)', letterSpacing: '0.06em' }}>
+              Developed by{' '}
+              <a
+                href="https://peiwebstudio.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-200"
+                style={{ color: 'hsl(0 0.97% 20.2% / 0.55)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'hsl(0 0.97% 20.2% / 0.55)')}
+              >
+                Pei Webstudio
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
             <Link
               to="/privacy-policy"
@@ -229,10 +246,6 @@ export default function Footer() {
             >
               Terms & Conditions
             </Link>
-            <span className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.3)' }}>·</span>
-            <p className="text-xs" style={{ color: 'hsl(0 0.97% 20.2% / 0.55)', letterSpacing: '0.06em' }}>
-              North York · Toronto, ON
-            </p>
           </div>
         </div>
       </div>

@@ -1,36 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
 import heroImg from '../assets/home-header.JPG.jpeg'
 import { BOOKING_URL } from '../lib/constants'
 import { treatmentCategories } from '../lib/treatmentCategories'
 
 export default function Hero() {
-  const contentRef = useRef(null)
-  const statsRef = useRef(null)
   const dropdownRef = useRef(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        contentRef.current?.children || [],
-        { y: 24, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.85, stagger: 0.1, ease: 'power3.out' }
-      )
-      gsap.fromTo(
-        statsRef.current?.children || [],
-        { y: 18, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75, stagger: 0.08, delay: 0.45, ease: 'power3.out' }
-      )
-    })
-
-    return () => ctx.revert()
-  }, [])
-
-  useEffect(() => {
     if (!dropdownOpen) return
-
     const onClick = (e) => {
       if (!dropdownRef.current?.contains(e.target)) setDropdownOpen(false)
     }
@@ -61,7 +40,7 @@ export default function Hero() {
       <div className="hero__overlay" aria-hidden="true" />
 
       <div className="hero__inner container-shell">
-        <div ref={contentRef} className="hero__content">
+        <div className="hero__content">
           <p className="eyebrow hero__eyebrow">Medical Skincare · Toronto</p>
           <h1 className="display-title hero__title">
             Advanced skincare treatments tailored to your skin goals.
@@ -114,7 +93,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div ref={statsRef} className="hero__proof" aria-label="Practice highlights">
+        <div className="hero__proof" aria-label="Practice highlights">
           <div>
             <strong>7+</strong>
             <span>Years combined clinical care</span>

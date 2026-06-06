@@ -4,13 +4,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { BOOKING_URL } from '../lib/constants'
 import { renderPolicyBody } from '../lib/renderPolicy'
+import { useSeoMeta } from '../lib/useSeoMeta'
 
 const sections = [
   {
     title: 'Acceptance of Terms',
     body: `By accessing this website, booking a service, or attending Lustrouz Aesthetics, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website or services.
 
-These terms apply to all clients, visitors, and users of our website located at lustrouz.ca and our clinic at 1275 Finch Ave W, North York, ON M3J 0L5, Toronto, Canada.
+These terms apply to all clients, visitors, and users of our website located at lustrouz.com and our clinic at 1275 Finch Ave W, North York, ON M3J 0L5, Toronto, Canada.
 
 We reserve the right to update these terms at any time. Changes take effect immediately upon posting to this page. Continued use of our services constitutes acceptance of the updated terms.`,
   },
@@ -147,9 +148,15 @@ Instagram: @lustrouz_bynzsha`,
 
 
 export default function Terms() {
+  useSeoMeta({
+    title: 'Terms & Conditions · Lustrouz Aesthetics',
+    description: 'Terms and conditions for Lustrouz Aesthetics. Please read before booking or using our medical skincare services in North York, Toronto.',
+    canonical: 'https://lustrouz.com/terms',
+    ogImage: 'https://lustrouz.com/og-image.jpg',
+  })
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-    document.title = 'Terms & Conditions · Lustrouz Aesthetics'
     return () => { document.title = 'Lustrouz Aesthetics · Medical Skincare Clinic · Toronto' }
   }, [])
 

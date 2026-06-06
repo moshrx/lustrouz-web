@@ -1,12 +1,7 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { BOOKING_URL } from '../lib/constants'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import bshapeBeforeAfter from '../assets/optimized/tp-b-shape-before-after.jpeg'
 import bshapeDevice from '../assets/optimized/tp-bshape-device.jpeg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const benefits = [
   'Fat reduction',
@@ -17,35 +12,9 @@ const benefits = [
 ]
 
 export default function BShapeSpotlight() {
-  const sectionRef = useRef(null)
-  const imgRef = useRef(null)
-  const copyRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        imgRef.current,
-        { x: -40, opacity: 0 },
-        {
-          x: 0, opacity: 1, duration: 1.1, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 72%' },
-        }
-      )
-      gsap.fromTo(
-        copyRef.current?.children || [],
-        { y: 30, opacity: 0 },
-        {
-          y: 0, opacity: 1, stagger: 0.1, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 68%' },
-        }
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section
-      ref={sectionRef}
       className="py-20 sm:py-28 lg:py-32 px-5 sm:px-8 lg:px-12 overflow-hidden"
       style={{ background: 'var(--color-deep-accent, #1a0f0a)' }}
     >
@@ -53,7 +22,7 @@ export default function BShapeSpotlight() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left: before/after image + device badge */}
-          <div ref={imgRef} className="relative">
+          <div className="relative">
             <div
               className="rounded-2xl overflow-hidden"
               style={{ aspectRatio: '4/3', background: 'rgba(255,255,255,0.05)' }}
@@ -101,7 +70,7 @@ export default function BShapeSpotlight() {
           </div>
 
           {/* Right: copy */}
-          <div ref={copyRef}>
+          <div>
             <p
               className="text-xs tracking-widest uppercase mb-5 font-medium"
               style={{ color: 'var(--color-accent)', letterSpacing: '0.24em' }}

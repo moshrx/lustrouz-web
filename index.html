@@ -7,7 +7,7 @@
 
     <title>Lustrouz Aesthetics · Medical Skincare Clinic · Toronto</title>
     <meta name="description" content="Lustrouz Aesthetics is a refined medical skincare clinic led by Shahama Nellanchery, Certified Medical Aesthetician. Customized treatments for acne, pigmentation, sensitivity & barrier repair in North York, Toronto." />
-    <link rel="canonical" href="https://lustrouz.ca/" />
+    <link rel="canonical" href="https://lustrouz.com/" />
 
     <!-- Open Graph / social -->
     <meta property="og:title" content="Lustrouz Aesthetics · Medical Skincare Clinic" />
@@ -15,23 +15,31 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_CA" />
     <meta property="og:site_name" content="Lustrouz Aesthetics" />
-    <meta property="og:url" content="https://lustrouz.ca/" />
+    <meta property="og:url" content="https://lustrouz.com/" />
+    <meta property="og:image" content="https://lustrouz.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Lustrouz Aesthetics — Medical Skincare Clinic, North York Toronto" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lustrouz Aesthetics · Medical Skincare Clinic" />
     <meta name="twitter:description" content="Science, skill, and subtle luxury. Customized medical aesthetic treatments by Shahama Nellanchery." />
+    <meta name="twitter:image" content="https://lustrouz.com/og-image.jpg" />
 
     <!-- LocalBusiness structured data for Google local search -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BeautySalon",
+        "@type": ["HealthAndBeautyBusiness", "LocalBusiness"],
         "name": "Lustrouz Aesthetics",
-        "image": "https://lustrouz.ca/og-image.jpg",
-        "url": "https://lustrouz.ca/",
+        "description": "Advanced medical skincare clinic led by Shahama Nellanchery, Certified Medical Aesthetician. Specializing in acne, pigmentation, sensitivity, and skin barrier repair in North York, Toronto.",
+        "image": "https://lustrouz.com/og-image.jpg",
+        "url": "https://lustrouz.com/",
         "telephone": "+14379801164",
         "priceRange": "$$",
+        "currenciesAccepted": "CAD",
+        "paymentAccepted": "Cash, Credit Card, Debit Card",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "1275 Finch Ave W",
@@ -44,6 +52,10 @@
           "@type": "GeoCoordinates",
           "latitude": 43.7664,
           "longitude": -79.4927
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Toronto"
         },
         "openingHoursSpecification": [
           {
@@ -59,10 +71,21 @@
             "closes": "18:00"
           }
         ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Skincare Treatments",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Signature Facials" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Advanced Facials & Treatments" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Micro-needling & Hair Restoration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Skin Tag Removal" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "B.Shape Body Contouring" } }
+          ]
+        },
         "sameAs": [
           "https://www.instagram.com/lustrouz_bynzsha/"
         ],
-        "founder": {
+        "employee": {
           "@type": "Person",
           "name": "Shahama Nellanchery",
           "jobTitle": "Certified Medical Aesthetician"
@@ -81,9 +104,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&display=swap&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
